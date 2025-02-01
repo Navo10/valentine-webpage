@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Heart</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background: red;
+            border-radius: 50px 50px 0 0;
+        }
+        .heart::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .heart {
+            animation: heartbeat 1s infinite;
+        }
+        .question {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #d60000;
+            font-weight: bold;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+        .no {
+            background-color: #999;
+            color: white;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+    <script>
+        function triggerConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            setTimeout(() => {
+                window.location.href = 'valentineyes.html';
+            }, 2000); // Redirect after 2 seconds
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".yes").addEventListener("click", triggerConfetti);
+        });
+    </script>
+    <script>   
+        function redirectToNoPage() {
+            window.location.href = 'valentineno.html';
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".no").addEventListener("click", redirectToNoPage);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="heart"></div>
+    <div class="question">Will you be my valentine?</div>
+    <div class="buttons">
+        <button class="yes">YES</button>
+        <button class="no">NO</button>
+    </div>
+</body>
+</html>

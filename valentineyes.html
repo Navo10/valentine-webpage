@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .gallery {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .message {
+            font-size: 24px;
+            color: #d60000;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 12px;"> Why didn't you say yes the first time?<br>
+        Anyways, I was on the other side of this page.<br>
+        So you basically didn't really have a choice.<br>
+        And now you're stuck with me. ❤️<br></h1>
+    <div class="message">Here's to us, forever and always!</div>
+    <div class="gallery">
+        <img src="her1.jpg" alt="Your Girlfriend">
+        <img src="me1.jpg" alt="You">
+        <img src="me_n_her1.jpg" alt="Together">
+    </div>
+
+    <audio id="bg-music" loop>
+    <source src="The 1975 - About You Mp3 Song Download (mp3cut.net) final.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function toggleMusic() {
+            var music = document.getElementById("bg-music");
+            var button = document.getElementById("music-button");
+    
+            if (music.paused) {
+                music.play();
+                button.textContent = "⏸ Pause Music";
+            } else {
+                music.pause();
+                button.textContent = "🎵 Play Music";
+            }
+        }
+    </script>
+<button id="music-button" onclick="toggleMusic()">🎵 Play Music</button>
+</body>
+</html>
